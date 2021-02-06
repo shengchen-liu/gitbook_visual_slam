@@ -1,0 +1,11 @@
+{
+	"title": "Computer Vision Learning Notes",
+    "description": "A collection of learning notes of Visual SLAM",
+    "author": "Shengchen Liu",
+	"links": {
+	        "sidebar": {
+	            "Home": "https://shengchen-liu.github.io/notes"
+	        }
+	    },
+    "plugins": ["mathjax"]
+}
