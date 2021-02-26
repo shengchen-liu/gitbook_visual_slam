@@ -1,0 +1,388 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Chapter 7: Visual Odometry: Feature Point · Computer Vision Learning Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Shengchen Liu">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://shengchen-liu.github.io/notes" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html">
+            
+                <a href="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html">
+            
+                    
+                    Chapter 2: First Glance at Visual SLAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="Visual_Odometry_Part_1.html">
+            
+                <a href="Visual_Odometry_Part_1.html">
+            
+                    
+                    Chapter 7: Visual Odometry: Feature Point
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Chapter 7: Visual Odometry: Feature Point</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="visual-odometry-part-1">Visual Odometry: Part 1</h1>
+<p>VO <strong>estimates the rough camera movement</strong> based on the information of the consecutive images, and provides a good initial value of the back end.</p>
+<p>VO are mainly divided into two categories: <strong>feature point method</strong> and <strong>direct method.</strong></p>
+<h2 id="1-feature-point-method">1. Feature Point Method</h2>
+<h3 id="11-feature-point">1.1 Feature Point</h3>
+<ol>
+<li>Select some representative feature points from the image.  These points will remain the same after a small change in the camera&apos;s angle of view, so that we can find the same points in each image.</li>
+<li>On the basis of these points, the problem of camera pose estimation and the positioning of these points are discussed.</li>
+</ol>
+<p><strong>Feature</strong> is another digital expression of image information.</p>
+<p>In visual odometry, we hope that feature points <strong>remain stable after the camera moves</strong>.</p>
+<h4 id="111-corners">1.1.1 Corners</h4>
+<p>Therefore, an intuitive way to extract features is to identify <strong>corners</strong> in different images and then determine their correspondence.</p>
+<p>Algorithms:</p>
+<p>Harris corner, FAST corner, GFTT corner</p>
+<h4 id="112-more-stable-local-features">1.1.2 More stable local features</h4>
+<p>Simple corner points are variant to scales.  So there are more stable local image features:</p>
+<p>SIFT, SURF, ORB</p>
+<h4 id="113-feature-point-properties"><strong>1.1.3 Feature Point Properties</strong>:</h4>
+<ol>
+<li>Repeatability: The same feature can be found in different images.</li>
+<li>Distinctiveness: Different features have different expressions.</li>
+<li>Efficiency: In the same image, the number of feature points should be far smaller than the number of pixels.</li>
+<li>Locality: The feature is only related to a small image area.</li>
+</ol>
+<h4 id="114-a-feature-point-is-composed-of-two-parts">1.1.4 A feature point is composed of two parts:</h4>
+<ul>
+<li><strong>Key-point</strong>: position of the feature point in the image, and some types of feature points also hold information such as orientation and size.</li>
+<li><strong>Descriptor</strong>: usually a vector, describing the information of the pixels around the key point according to some handcrafted rules. Features with similar appearance should have similar descriptors.</li>
+</ul>
+<h4 id="115-some-popular-feature-point-methods">1.1.5 Some Popular Feature Point Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Feature Point</th>
+<th>Descriptor</th>
+<th>Speed</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIFT (Scale-Invariant Feature Transform)</td>
+<td>SIFT</td>
+<td>SIFT</td>
+<td>Slow</td>
+<td>Fully consider the changes in illumination, scale and rotation</td>
+</tr>
+<tr>
+<td>FAST key point</td>
+<td>FAST</td>
+<td>N/A</td>
+<td>Fast</td>
+<td>A feature point that is extremely fast to calculate.  No descriptor. No direction information</td>
+</tr>
+<tr>
+<td>ORB (Oriented FAST and Rotated BRIEF)</td>
+<td>Oriented FAST</td>
+<td>Rotated BRIEF</td>
+<td>Fast</td>
+<td>It solves the problem that FAST detector does not have directionality, and uses the extremely fast binary descriptor BRIEF.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-orb-feature">2. ORB Feature</h2>
+<p>ORB features are composed of two parts: key points and descriptor. </p>
+<p>Two steps:</p>
+<ul>
+<li><strong>Key point</strong>: <strong>Oriented FAST</strong>. Compared with the original FAST, the main direction of the feature points is calculated</li>
+<li><strong>Descriptor: BRIEF</strong> (Binary Robust Independent Elementary Feature) .  Describe the surrounding image area where the feature points were extracted in the previous step.  ORB has made some improvements to BRIEF, mainly referring to utilizing the previously calculated direction</li>
+</ul>
+<h3 id="21-fast-key-points">2.1 FAST Key points</h3>
+<p>FAST is a kind of corner point, which mainly detects the obvious grayscale changes locally, and is known for its fast speed.</p>
+<h4 id="211-main-idea">2.1.1 Main Idea</h4>
+<p>If a pixel is very different from the neighboring pixels (too bright or too dark), then it is more likely to be a corner points. </p>
+<p>Compared with other corner detection algorithms, FAST only needs to compare the brightness of the pixels, which is very fast.</p>
+<h4 id="212-entire-procedure">2.1.2 Entire Procedure</h4>
+<ol>
+<li>Select pixel <script type="math/tex; ">p</script> in the image assuming its brightness as <script type="math/tex; ">I_p</script></li>
+<li><p>Set a threshold <script type="math/tex; ">T</script> (for example, 20% of <script type="math/tex; ">I_p</script>)</p>
+</li>
+<li><p>Take the pixel <script type="math/tex; ">p</script> as the center, and select the 16 pixels on a circle with a radius of 3.</p>
+</li>
+<li>If there are consecutive N points on the selected circle whose brightness is greater than <script type="math/tex; ">I_p + T</script> or less than <script type="math/tex; ">I_p - T</script>, then the central pixel <script type="math/tex; ">p</script> can be considered as a feature point (<script type="math/tex; ">N</script> usually takes 12, which is FAST-12).</li>
+<li>Iterate though the above four steps on each pixel.</li>
+</ol>
+<h4 id="213-good">2.1.3 Good</h4>
+<ul>
+<li><p>In the FAST-12 algorithm, to speed up, checking the brightness of the 1, 5, 9, and 13-th pixels on the circle for each pixel can quickly exclude a lot of pixels that are not corner points.  Only when 3 out of 4 pixels are greater than <script type="math/tex; ">I_p + T</script> or less than <script type="math/tex; ">I_p - T</script>, may the current pixel be a corner points, otherwise it should be excluded directly.  Such &apos;pre-processing&apos; operation greatly accelerates FAST corner detection.</p>
+</li>
+<li><p>Non-maximal suppression:  the original FAST corners are often &#x201D;clustered&#x201D;, meaning a lot of FAST corners present in the same area. Therefore, after the initial detection, non-maximal suppression is required. Only corner points with maximum response in a certain area will be retained to avoid the corners concentrating.</p>
+</li>
+</ul>
+<p><img src="asset/fast-corner.png" alt=""></p>
+<h4 id="214-bad">2.1.4 Bad</h4>
+<ul>
+<li>The calculation of FAST feature points only compares the brightness difference between pixels, thus the speed is very fast, but it suffers from bad repeatability and uneven distribution. </li>
+<li>FAST corner points do not include direction information. </li>
+<li>It fixed the radius of circle as 3, there is also a scaling problem: a place that looks like a corner from a distance may not be a corner when it comes close. </li>
+</ul>
+<h3 id="22-oriented-fast-key-points">2.2 Oriented FAST Key points</h3>
+<p>ORB adds the description of scale and rotation. The <strong>scale invariance</strong> is achieved by the image pyramid, and detect corner points on each layer of the pyramid. The <strong>rotation</strong> of features is realized by the Intensity Centroid method.</p>
+<h4 id="221-image-pyramid">2.2.1 Image Pyramid</h4>
+<p>Pyramid is a common approach in computer vision.  The bottom of the pyramid is the original image. For each layer up, the image is scaled with a fixed ratio, so that we have images of different resolutions. The smaller image can be seen as a scene viewed from a distance. In the feature matching
+algorithm, we can match images on different layers to achieve scale invariance.</p>
+<h4 id="222-intensity-centroid">2.2.2 Intensity Centroid</h4>
+<p>In terms of rotation, we calculate the gray centroid of the image near the feature point.  The so-called centroid refers to the gray value of the image block as the center of weight. The specific steps are as follows</p>
+<ol>
+<li>In a small image block <script type="math/tex; ">B</script>, define the moment of the image block as
+<script type="math/tex; mode=display">
+m_{pq}=\sum_{x,y \in B}x^{p}y^{q}I(x,y), \quad p, q = \{0,1\}.
+</script></li>
+<li>Calculate the centroid of the image block by the moment:
+<script type="math/tex; mode=display">
+   C=\left(\frac{m_{10}}{m_{00}},\frac{m_{01}}{m_{00}}\right).
+</script></li>
+<li>Connect the geometric center <script type="math/tex; ">O</script> and the centroid <script type="math/tex; ">C</script> of the image block to get a direction vector <script type="math/tex; ">\overrightarrow{OC}</script>, so the direction of the feature point can be defined as
+<script type="math/tex; mode=display">
+\theta = \arctan(m_{01}/m_{10}).
+</script></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Chapter 2: First Glance at Visual SLAM">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Chapter 7: Visual Odometry: Feature Point","level":"1.3","depth":1,"previous":{"title":"Chapter 2: First Glance at Visual SLAM","level":"1.2","depth":1,"path":"ch2_first_glance/chapter2-first-glance-of-visual-SLAM.md","ref":"ch2_first_glance/chapter2-first-glance-of-visual-SLAM.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch7_visual_odometry_part1/Visual_Odometry_Part_1.md","mtime":"2021-02-26T05:45:13.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-26T05:46:07.359Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
