@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3D-2D: PnP · Computer Vision Learning Notes</title>
+        <title>3D-3D: ICP · Computer Vision Learning Notes</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="3D-3D_ICP.html" />
     
-    
-    <link rel="prev" href="2D-2D_epipolar_geometry.html" />
+    <link rel="prev" href="3D-2DPnP.html" />
     
 
     </head>
@@ -204,7 +202,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.4.2" data-path="3D-2DPnP.html">
+        <li class="chapter " data-level="1.3.4.2" data-path="3D-2DPnP.html">
             
                 <a href="3D-2DPnP.html">
             
@@ -217,7 +215,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.3" data-path="3D-3D_ICP.html">
+        <li class="chapter active" data-level="1.3.4.3" data-path="3D-3D_ICP.html">
             
                 <a href="3D-3D_ICP.html">
             
@@ -270,7 +268,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >3D-2D: PnP</a>
+        <a href=".." >3D-3D: ICP</a>
     </h1>
 </div>
 
@@ -285,8 +283,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="3d-2dpnp">3D-2D:PnP</h1>
-<p>PnP (Perspective-n-Point) is a method to solve 3D to 2D paired point motion. </p>
+                                <h1 id="3d-3d-iterative-closest-point-icp">3D-3D: Iterative Closest Point (ICP)</h1>
+<p>Suppose we have a set of matched 3D points:
+<script type="math/tex; mode=display">
+P = \{ p_1, ..., p_n \}, P' = \{p_1', ..., p_n' \}
+</script>
+Now we need to find an Euclidean transformation <script type="math/tex; ">R, t</script>, which makes:
+<script type="math/tex; mode=display">
+\forall i,p_i = Rp'_i + t
+</script>
+This problem can be solved by Iterative Closest Point (ICP).</p>
+<h2 id="1-linear-algebra-svd">1. Linear Algebra (SVD)</h2>
+<h3 id="11-error-term-for-the-point-i">1.1 Error term for the point <script type="math/tex; ">i</script></h3>
+<p><script type="math/tex; mode=display">
+e_i = p_i - (RP_i' + t)
+</script></p>
+<h3 id="12-least-square-problem-to-find-rt-by-minimization-of-sum-of-the-squared-errors">1.2 Least square problem to find R,t by minimization of sum of the squared errors</h3>
+<p><script type="math/tex; mode=display">
+\min_{R, t} = \frac{1}{2}\sum_{i=1}^n ||(p_i - (Rp_i' + t))||_2^2
+</script></p>
+<h2 id="2-non-linear-optimization">2. Non-linear optimization</h2>
+<p>Express the poses in Lie algebra, the objective function:
+<script type="math/tex; mode=display">
+\min_\xi = \frac{1}{2} \sum_{i = 1}^n || (p_i -\exp (\xi ^\wedge)p'_i)||_2^2
+</script>
+The derivative of a single error term using the Lie algebra perturbation model:
+<script type="math/tex; mode=display">
+\frac{\part e}{\part \delta \xi} = - (\exp(\xi ^\wedge)p'_i)^\odot
+</script></p>
 
                                 
                                 </section>
@@ -314,14 +338,10 @@
 
             
                 
-                <a href="2D-2D_epipolar_geometry.html" class="navigation navigation-prev " aria-label="Previous page: 2D-2D: epipolar geometry">
+                <a href="3D-2DPnP.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3D-2D: PnP">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="3D-3D_ICP.html" class="navigation navigation-next " aria-label="Next page: 3D-3D: ICP">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -330,7 +350,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3D-2D: PnP","level":"1.3.4.2","depth":3,"next":{"title":"3D-3D: ICP","level":"1.3.4.3","depth":3,"path":"ch7_visual_odometry_part1/3D-3D_ICP.md","ref":"ch7_visual_odometry_part1/3D-3D_ICP.md","articles":[]},"previous":{"title":"2D-2D: epipolar geometry","level":"1.3.4.1","depth":3,"path":"ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md","ref":"ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch7_visual_odometry_part1/3D-2DPnP.md","mtime":"2021-03-05T19:00:55.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T19:03:11.420Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3D-3D: ICP","level":"1.3.4.3","depth":3,"previous":{"title":"3D-2D: PnP","level":"1.3.4.2","depth":3,"path":"ch7_visual_odometry_part1/3D-2DPnP.md","ref":"ch7_visual_odometry_part1/3D-2DPnP.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch7_visual_odometry_part1/3D-3D_ICP.md","mtime":"2021-03-05T19:00:55.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T19:03:11.420Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

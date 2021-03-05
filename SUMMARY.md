@@ -12,4 +12,4 @@
   - [Calculate Camera Motion](ch7_visual_odometry_part1/Calculate_Camera_Motion.md)
     - [2D-2D: epipolar geometry](ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md)
     - [3D-2D: PnP](ch7_visual_odometry_part1/3D-2DPnP.md)
-    - [3D-3D: ICP](ch7_visual_odometry_part1/3D-3D_Iterative_Closest_Point(ICP).md)
+    - [3D-3D: ICP](ch7_visual_odometry_part1/3D-3D_ICP.md)
