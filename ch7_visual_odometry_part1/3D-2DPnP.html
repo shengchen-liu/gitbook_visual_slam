@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Feature Point · Computer Vision Learning Notes</title>
+        <title>3D-2D: PnP · Computer Vision Learning Notes</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ORB_Feature.html" />
+    <link rel="next" href="3D-3D_Iterative_Closest_Point(ICP" />
     
     
-    <link rel="prev" href="Visual_Odometry_Part_1.html" />
+    <link rel="prev" href="2D-2D_epipolar_geometry.html" />
     
 
     </head>
@@ -138,7 +138,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="Feature_Point.html">
+        <li class="chapter " data-level="1.3.1" data-path="Feature_Point.html">
             
                 <a href="Feature_Point.html">
             
@@ -204,7 +204,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.2" data-path="3D-2DPnP.html">
+        <li class="chapter active" data-level="1.3.4.2" data-path="3D-2DPnP.html">
             
                 <a href="3D-2DPnP.html">
             
@@ -270,7 +270,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Feature Point</a>
+        <a href=".." >3D-2D: PnP</a>
     </h1>
 </div>
 
@@ -285,67 +285,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="feature-point">Feature Point</h1>
-<ol>
-<li>Select some representative feature points from the image.  These points will remain the same after a small change in the camera&apos;s angle of view, so that we can find the same points in each image.</li>
-<li>On the basis of these points, the problem of camera pose estimation and the positioning of these points are discussed.</li>
-</ol>
-<p><strong>Feature</strong> is another digital expression of image information.</p>
-<p>In visual odometry, we hope that feature points <strong>remain stable after the camera moves</strong>.</p>
-<h2 id="1-corners">1. Corners</h2>
-<p>Therefore, an intuitive way to extract features is to identify <strong>corners</strong> in different images and then determine their correspondence.</p>
-<p>Algorithms:</p>
-<p>Harris corner, FAST corner, GFTT corner</p>
-<h2 id="2-more-stable-local-features">2 More stable local features</h2>
-<p>Simple corner points are variant to scales.  So there are more stable local image features:</p>
-<p>SIFT, SURF, ORB</p>
-<h2 id="3-feature-point-properties"><strong>3 Feature Point Properties</strong>:</h2>
-<ol>
-<li>Repeatability: The same feature can be found in different images.</li>
-<li>Distinctiveness: Different features have different expressions.</li>
-<li>Efficiency: In the same image, the number of feature points should be far smaller than the number of pixels.</li>
-<li>Locality: The feature is only related to a small image area.</li>
-</ol>
-<h2 id="4-a-feature-point-is-composed-of-two-parts">4 A feature point is composed of two parts:</h2>
-<ul>
-<li><strong>Key-point</strong>: position of the feature point in the image, and some types of feature points also hold information such as orientation and size.</li>
-<li><strong>Descriptor</strong>: usually a vector, describing the information of the pixels around the key point according to some handcrafted rules. Features with similar appearance should have similar descriptors.</li>
-</ul>
-<h2 id="5-some-popular-feature-point-methods">5 Some Popular Feature Point Methods</h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Feature Point</th>
-<th>Descriptor</th>
-<th>Speed</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SIFT (Scale-Invariant Feature Transform)</td>
-<td>SIFT</td>
-<td>SIFT</td>
-<td>Slow</td>
-<td>Fully consider the changes in illumination, scale and rotation</td>
-</tr>
-<tr>
-<td>FAST key point</td>
-<td>FAST</td>
-<td>N/A</td>
-<td>Fast</td>
-<td>A feature point that is extremely fast to calculate.  No descriptor. No direction information</td>
-</tr>
-<tr>
-<td>ORB (Oriented FAST and Rotated BRIEF)</td>
-<td>Oriented FAST</td>
-<td>Rotated BRIEF</td>
-<td>Fast</td>
-<td>It solves the problem that FAST detector does not have directionality, and uses the extremely fast binary descriptor BRIEF.</td>
-</tr>
-</tbody>
-</table>
+                                <h1 id="3d-2dpnp">3D-2D:PnP</h1>
+<p>PnP (Perspective-n-Point) is a method to solve 3D to 2D paired point motion. </p>
 
                                 
                                 </section>
@@ -373,12 +314,12 @@
 
             
                 
-                <a href="Visual_Odometry_Part_1.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 7: Visual Odometry: Feature Point">
+                <a href="2D-2D_epipolar_geometry.html" class="navigation navigation-prev " aria-label="Previous page: 2D-2D: epipolar geometry">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ORB_Feature.html" class="navigation navigation-next " aria-label="Next page: ORB Feature">
+                <a href="3D-3D_Iterative_Closest_Point(ICP" class="navigation navigation-next " aria-label="Next page: 3D-3D: ICP">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -389,7 +330,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Feature Point","level":"1.3.1","depth":2,"next":{"title":"ORB Feature","level":"1.3.2","depth":2,"path":"ch7_visual_odometry_part1/ORB_Feature.md","ref":"ch7_visual_odometry_part1/ORB_Feature.md","articles":[]},"previous":{"title":"Chapter 7: Visual Odometry: Feature Point","level":"1.3","depth":1,"path":"ch7_visual_odometry_part1/Visual_Odometry_Part_1.md","ref":"ch7_visual_odometry_part1/Visual_Odometry_Part_1.md","articles":[{"title":"Feature Point","level":"1.3.1","depth":2,"path":"ch7_visual_odometry_part1/Feature_Point.md","ref":"ch7_visual_odometry_part1/Feature_Point.md","articles":[]},{"title":"ORB Feature","level":"1.3.2","depth":2,"path":"ch7_visual_odometry_part1/ORB_Feature.md","ref":"ch7_visual_odometry_part1/ORB_Feature.md","articles":[]},{"title":"Feature Matching","level":"1.3.3","depth":2,"path":"ch7_visual_odometry_part1/Feature_Matching.md","ref":"ch7_visual_odometry_part1/Feature_Matching.md","articles":[]},{"title":"Calculate Camera Motion","level":"1.3.4","depth":2,"path":"ch7_visual_odometry_part1/Calculate_Camera_Motion.md","ref":"ch7_visual_odometry_part1/Calculate_Camera_Motion.md","articles":[{"title":"2D-2D: epipolar geometry","level":"1.3.4.1","depth":3,"path":"ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md","ref":"ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md","articles":[]},{"title":"3D-2D: PnP","level":"1.3.4.2","depth":3,"path":"ch7_visual_odometry_part1/3D-2DPnP.md","ref":"ch7_visual_odometry_part1/3D-2DPnP.md","articles":[]},{"title":"3D-3D: ICP","level":"1.3.4.3","depth":3,"path":"ch7_visual_odometry_part1/3D-3D_Iterative_Closest_Point(ICP","ref":"ch7_visual_odometry_part1/3D-3D_Iterative_Closest_Point(ICP","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch7_visual_odometry_part1/Feature_Point.md","mtime":"2021-03-05T18:51:30.042Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T19:00:51.497Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3D-2D: PnP","level":"1.3.4.2","depth":3,"next":{"title":"3D-3D: ICP","level":"1.3.4.3","depth":3,"path":"ch7_visual_odometry_part1/3D-3D_Iterative_Closest_Point(ICP","ref":"ch7_visual_odometry_part1/3D-3D_Iterative_Closest_Point(ICP","articles":[]},"previous":{"title":"2D-2D: epipolar geometry","level":"1.3.4.1","depth":3,"path":"ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md","ref":"ch7_visual_odometry_part1/2D-2D_epipolar_geometry.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch7_visual_odometry_part1/3D-2DPnP.md","mtime":"2021-03-05T18:51:30.058Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T19:00:51.497Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
