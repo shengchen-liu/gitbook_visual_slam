@@ -2,6 +2,11 @@
 
 * [Introduction](README.md)
 * [Chapter 2: First Glance at Visual SLAM](ch2_first_glance/chapter2-first-glance-of-visual-SLAM.md)
+* [Chapter 3: 3D Rigid Body Motion](ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.md)
+  * [Rotation Matrix](ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.md)
+  * [Rotation Vector and Euler Angle](ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.md)
+  * [Quaternions](ch3_3D_rigid_body_motion/3.3_Quaternions.md)
+  * [Affine and Projective Transformation](ch3_3D_rigid_body_motion/3.4_Affine_and_Projective_Transformation.md)
 
 - [Chapter 7: Visual Odometry: Feature Point](ch7_visual_odometry_part1/Visual_Odometry_Part_1.md)
 
