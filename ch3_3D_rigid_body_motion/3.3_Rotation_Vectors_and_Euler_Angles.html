@@ -367,24 +367,24 @@
 <p>Can be described by a rotation axis (<script type="math/tex; ">\textbf{n}</script>) and a rotation angle (<script type="math/tex; ">\theta</script>).</p>
 <p><strong>The conversion from the rotation vector to the rotation matrix:</strong>
 <script type="math/tex; mode=display">
-\mathbf{R} = \cos \theta \mathbf{I} + \left({ 1 - \cos \theta } \right) \mathbf{n} { \mathbf {n} ^T } + \sin \theta { \mathbf{n}^ \wedge }
+\pmb{R} = \cos \theta \pmb{I} + \left({ 1 - \cos \theta } \right) \pmb{n} { \pmb {n} ^T } + \sin \theta { \pmb{n}^ \wedge }
 </script>
 <strong>The conversion from the rotation matrix to rotation vector:</strong>
 <script type="math/tex; mode=display">
 \begin{aligned}
-\mathrm{tr} \left( \mathbf{R} \right) &= \cos \theta \mathop{}\!\mathrm{tr}\left( \mathbf{I} \right) + \left( {1 - \cos \theta } \right) \mathop{}\!\mathrm{tr} \left( { \mathbf{n} {\mathbf{n}^T}} \right) + \sin \theta \mathop{}\!\mathrm{tr} ({\mathbf{n}^ \wedge })\\
+\mathrm{tr} \left( \pmb{R} \right) &= \cos \theta \mathop{}\!\mathrm{tr}\left( \pmb{I} \right) + \left( {1 - \cos \theta } \right) \mathop{}\!\mathrm{tr} \left( { \pmb{n} {\pmb{n}^T}} \right) + \sin \theta \mathop{}\!\mathrm{tr} ({\pmb{n}^ \wedge })\\
 &= 3\cos \theta  + (1 - \cos \theta )\\
 &= 1 + 2\cos \theta .
 \end{aligned}
 </script>
 Therefore:
 <script type="math/tex; mode=display">
-\theta = \arccos ( \frac{\mathrm{tr}(\mathbf{R}) - 1}{2}  ) .
+\theta = \arccos ( \frac{\mathrm{tr}(\pmb{R}) - 1}{2}  ) .
 </script></p>
 <p><script type="math/tex; mode=display">
-\mathbf{R} \mathbf{n} = \mathbf{n}.
+\pmb{R} \pmb{n} = \pmb{n}.
 </script></p>
-<p>The axis $ \mathbf{n} $ is the eigenvector corresponding to the matrix $ \mathbf{R}$&apos;s eigenvalue 1. Solving this equation and normalizing it gives the axis of rotation.</p>
+<p>The axis $ \pmb{n} $ is the eigenvector corresponding to the matrix $ \pmb{R}$&apos;s eigenvalue 1. Solving this equation and normalizing it gives the axis of rotation.</p>
 <h2 id="322-euler-angles">3.2.2 Euler Angles</h2>
 <p>One of the most commonly used Euler angles is the yaw-pitch-roll angles. Since it is equivalent to the rotation of the ZYX axis, we take the ZY X Euler angle as an example.</p>
 <ol>
@@ -436,7 +436,7 @@ Therefore:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rotation Vector and Euler Angle","level":"1.3.2","depth":2,"next":{"title":"Quaternions","level":"1.3.3","depth":2,"path":"ch3_3D_rigid_body_motion/3.3_Quaternions.md","ref":"ch3_3D_rigid_body_motion/3.3_Quaternions.md","articles":[]},"previous":{"title":"Rotation Matrix","level":"1.3.1","depth":2,"path":"ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.md","ref":"ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.md","mtime":"2021-04-22T03:32:18.037Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-22T03:36:24.775Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rotation Vector and Euler Angle","level":"1.3.2","depth":2,"next":{"title":"Quaternions","level":"1.3.3","depth":2,"path":"ch3_3D_rigid_body_motion/3.3_Quaternions.md","ref":"ch3_3D_rigid_body_motion/3.3_Quaternions.md","articles":[]},"previous":{"title":"Rotation Matrix","level":"1.3.1","depth":2,"path":"ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.md","ref":"ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.md","mtime":"2021-04-22T03:37:27.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-22T03:37:57.151Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
