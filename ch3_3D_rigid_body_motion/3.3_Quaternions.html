@@ -1,0 +1,578 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Quaternions · Computer Vision Learning Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Shengchen Liu">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.4_Affine_and_Projective_Transformation.html" />
+    
+    
+    <link rel="prev" href="3.3_Rotation_Vectors_and_Euler_Angles.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://shengchen-liu.github.io/notes" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html">
+            
+                <a href="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html">
+            
+                    
+                    Chapter 2: First Glance at Visual SLAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Chapter3_3D_Rigid_Body_Motion.html">
+            
+                <a href="Chapter3_3D_Rigid_Body_Motion.html">
+            
+                    
+                    Chapter 3: 3D Rigid Body Motion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Chapter3_3D_Rigid_Body_Motion.html">
+            
+                <a href="Chapter3_3D_Rigid_Body_Motion.html">
+            
+                    
+                    Rotation Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="3.3_Rotation_Vectors_and_Euler_Angles.html">
+            
+                <a href="3.3_Rotation_Vectors_and_Euler_Angles.html">
+            
+                    
+                    Rotation Vector and Euler Angle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="3.3_Quaternions.html">
+            
+                <a href="3.3_Quaternions.html">
+            
+                    
+                    Quaternions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="3.4_Affine_and_Projective_Transformation.html">
+            
+                <a href="3.4_Affine_and_Projective_Transformation.html">
+            
+                    
+                    Affine and Projective Transformation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch7_visual_odometry_part1/Visual_Odometry_Part_1.html">
+            
+                <a href="../ch7_visual_odometry_part1/Visual_Odometry_Part_1.html">
+            
+                    
+                    Chapter 7: Visual Odometry: Feature Point
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch7_visual_odometry_part1/Feature_Point.html">
+            
+                <a href="../ch7_visual_odometry_part1/Feature_Point.html">
+            
+                    
+                    Feature Point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch7_visual_odometry_part1/ORB_Feature.html">
+            
+                <a href="../ch7_visual_odometry_part1/ORB_Feature.html">
+            
+                    
+                    ORB Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch7_visual_odometry_part1/Feature_Matching.html">
+            
+                <a href="../ch7_visual_odometry_part1/Feature_Matching.html">
+            
+                    
+                    Feature Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch7_visual_odometry_part1/Calculate_Camera_Motion.html">
+            
+                <a href="../ch7_visual_odometry_part1/Calculate_Camera_Motion.html">
+            
+                    
+                    Calculate Camera Motion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../ch7_visual_odometry_part1/2D-2D_epipolar_geometry.html">
+            
+                <a href="../ch7_visual_odometry_part1/2D-2D_epipolar_geometry.html">
+            
+                    
+                    2D-2D: epipolar geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../ch7_visual_odometry_part1/3D-2DPnP.html">
+            
+                <a href="../ch7_visual_odometry_part1/3D-2DPnP.html">
+            
+                    
+                    3D-2D: PnP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../ch7_visual_odometry_part1/3D-3D_ICP.html">
+            
+                <a href="../ch7_visual_odometry_part1/3D-3D_ICP.html">
+            
+                    
+                    3D-3D: ICP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Quaternions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="33-quaternions">3.3 Quaternions</h1>
+<p>Quaternions are extended complex numbers.</p>
+<p>A quaternion q has a real part and three imaginary parts. 
+<script type="math/tex; mode=display">
+\mathbf{q} = q_0 + q_1 i + q_2 j + q_3 k
+</script>
+where i, j, k are three imaginary parts of the quaternion. These three imaginary parts satisfy the following relationship:
+<script type="math/tex; mode=display">
+\left\{ \begin{array}{l}
+{i^2} = {j^2} = {k^2} =  - 1\\
+ij = k, ji = - k \\
+jk = i,kj =  - i\\
+ki = j, ik = - j
+\end{array} \right.
+</script>
+We can also use a scalar and a vector to express quaternions:
+<script type="math/tex; mode=display">
+\mathbf{q} = \left[ s, \mathbf{v} \right]^T, \quad s=q_0 \in \mathbb{R},\quad \mathbf{v} = [q_1, q_2, q_3]^T \in \mathbb{R}^3
+</script>
+Here, <script type="math/tex; "> s </script> is the real part of the quaternion, and <script type="math/tex; "> \mathbf {v} </script> is its imaginary part. If the imaginary part of a quaternion is <script type="math/tex; "> \mathbf {0} </script>, it is called <em>real quaternion</em>. Conversely, if its real part is <script type="math/tex; "> 0 </script>, it is called <em>imaginary quaternion</em>.</p>
+<h2 id="331-quaternion-operations">3.3.1 Quaternion Operations</h2>
+<p><script type="math/tex; mode=display">
+\mathbf{q} _a = s_a + x_ai + y_aj + z_ak, \quad  \mathbf {q} _b = s_b + x_bi + y_bj + z_bk
+</script></p>
+<ol>
+<li><p>Addition and subtraction
+<script type="math/tex; mode=display">
+   \mathbf{q}_a \pm \mathbf{q}_b = \left[ s_a \pm s_b, \mathbf{v}_a \pm \mathbf{v}_b \right]^T
+   </script></p>
+</li>
+<li><p>Multiplication
+<script type="math/tex; mode=display">
+   \mathbf{q}_a \mathbf{q}_b = \left[ s_a s_b - \mathbf{v}_a^T \mathbf{v}_b, s_a\mathbf{v}_b + s_b\mathbf{v}_a + \mathbf{v}_a \times \mathbf{v}_b \right]^T
+   </script></p>
+</li>
+<li><p>Length
+<script type="math/tex; mode=display">
+       \| \mathbf{q}_a \| = \sqrt{ s_a^2 + x_a^2 + y_a^2 + z_a^2 }.
+   </script>
+It can be verified that the length of the product is the product of the lengths. This makes the unit quaternion keep unit-length when multiplied by another unit quaternion:
+<script type="math/tex; mode=display">
+       \| \mathbf{q}_a \mathbf{q}_b \| = \|\mathbf{q}_a \| \| \mathbf{q}_b \|.
+   </script></p>
+</li>
+<li><p>Conjugate</p>
+<p>The conjugate of a quaternion is to take the imaginary part as the opposite:
+<script type="math/tex; mode=display">
+       \mathbf{q}_a ^ * = s_a - x_ai - y_aj - z_ak = [s_a, - \mathbf{v}_a] ^T.
+   </script>
+ We get a real quaternion if the quaternion is multiplied by its conjugate. The real part is the square of its length:
+<script type="math/tex; mode=display">
+   \mathbf{q}^* \mathbf{q} = \mathbf{q} \mathbf{q}^* = [s^2+\mathbf{v}^T \mathbf{v}, \mathbf{0} ]^T
+   </script></p>
+</li>
+<li><p>Inverse
+<script type="math/tex; mode=display">
+       \mathbf{q} ^ { - 1 } = \mathbf{q} ^ * / \| \mathbf{q} \| ^ 2.
+   </script>
+According to this definition, the product of the quaternion and its inverse is the real quaternion <script type="math/tex; "> \mathbf {1} </script>:
+<script type="math/tex; mode=display">
+       \mathbf{q} \mathbf{q}^{-1} = \mathbf{q}^{-1} \mathbf{q} = \mathbf{1}.
+   </script>
+If <script type="math/tex; "> \mathbf{q} </script> is a unit quaternion, its inverse and conjugate are the same. So the inverse of the product has properties similar to matrices:
+<script type="math/tex; mode=display">
+   \left( \mathbf{q}_a \mathbf{q}_b \right)^{-1} = \mathbf{q}_b^{-1} \mathbf{q}_a^{-1}.
+   </script></p>
+</li>
+<li><p>Scalar Multiplication</p>
+</li>
+</ol>
+<p><script type="math/tex; mode=display">
+    k \mathbf{q} = \left[ ks, k\mathbf{v} \right]^T.
+</script></p>
+<h2 id="332-use-quaternion-to-represent-a-rotation">3.3.2 Use Quaternion to Represent a Rotation</h2>
+<p>Suppose a spatial 3D point <script type="math/tex; "> \mathbf{p} = [x,y,z]^T \in  \mathbb {R}^3 </script>, and a rotation is specified by a unit quaternion <script type="math/tex; "> \mathbf{q}</script>.</p>
+<ol>
+<li><p>Extend the 3D point to an imaginary quaternion:
+<script type="math/tex; mode=display">
+   \mathbf{p} = [0, x, y, z]^T = [0, \mathbf{v}]^T. 
+   </script></p>
+</li>
+<li><p>The rotated point <script type="math/tex; ">p'</script> can be expressed as such a product:
+<script type="math/tex; mode=display">
+   \mathbf{p}' = \mathbf{q} \mathbf{p} \mathbf{q}^{-1}.
+   </script></p>
+</li>
+</ol>
+<h2 id="333-conversion-of-quaternions-to-other-rotation-representations">3.3.3 Conversion of Quaternions to Other Rotation Representations</h2>
+<p>The relationship between quaternions and rotation vectors / matrices.</p>
+<p>Let <script type="math/tex; "> \mathbf{q}=[s,\mathbf{v}]^T </script>, then define the following symbols <script type="math/tex; ">^{+}</script> and <script type="math/tex; ">^{\oplus}</script>
+<script type="math/tex; mode=display">
+\mathbf{q}^{+}=\left[\begin{array}{cc}
+		s&-\mathbf{v}^T \\
+		\mathbf{v}&s\mathbf{I}+\mathbf{v}^{\wedge}
+	\end{array}\right],\quad
+	\mathbf{q}^{\oplus}=
+	\left[\begin{array}{cc}
+		s & -\mathbf{v}^T \\
+		\mathbf{v} & s\mathbf{I}-\mathbf{v}^{\wedge}
+	\end{array}\right]
+</script>
+These two symbols map the quaternion to a 4x4 matrix.
+<script type="math/tex; mode=display">
+\mathbf{q}_1^ + {\mathbf{q}_2} = \left[ {\begin{array}{*{20}{c}}
+			s_1&-\mathbf{v}_1^T\\
+			\mathbf{v}_1 & s_1 \mathbf{I} + \mathbf{v}_1^\wedge
+	\end{array}} \right]\left[ {\begin{array}{*{20}{c}}
+			{ {s _2}} \\
+			{ {\mathbf{v} _2}}
+	\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
+			{ - \mathbf{v} _1^T{\mathbf{v} _2} + {s _1}{s _2}} \\
+			{ {s _1}{\mathbf{v} _2} + {s _2}{\mathbf{v} _1} + \mathbf{v} _1^ \wedge {\mathbf{v} _2}}
+	\end{array}} \right] = \mathbf{q}_1 \mathbf{q}_2
+</script></p>
+<p><script type="math/tex; mode=display">
+\mathbf{q}_1 \mathbf{q}_2 = \mathbf{q}_1^{+} \mathbf{q}_2 = \mathbf{q}_2^{\oplus} \mathbf{q}_1.
+</script></p>
+<p>Then, consider the problem of using a quaternion to rotate a spatial point.
+<script type="math/tex; mode=display">
+\begin{split}
+		\mathbf{p}' &= \mathbf{q} \mathbf{p} \mathbf{q}^{-1} = \mathbf{q}^+ \mathbf{p}^+ \mathbf{q}^{ -1} \\
+		&= \mathbf{q}^+ \mathbf{q}^{ {-1}^{\oplus}} \mathbf{p}.
+	\end{split}
+</script>
+In summary, the conversion formula from quaternion to rotation vector can be written as:
+<script type="math/tex; mode=display">
+	\begin{cases}
+		\theta = 2\arccos {q_0}\\
+		{\left[ { {n_x},{n_y},{n_z}} \right]^T} = { { {\left[ { {q_1},{q_2},{q_3}} \right] }^T}}/{\sin \frac{\theta }{2}}
+	\end{cases}
+</script>
+And for converting from other representations to quaternions, we only need to reversely follow the above steps.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.3_Rotation_Vectors_and_Euler_Angles.html" class="navigation navigation-prev " aria-label="Previous page: Rotation Vector and Euler Angle">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.4_Affine_and_Projective_Transformation.html" class="navigation navigation-next " aria-label="Next page: Affine and Projective Transformation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Quaternions","level":"1.3.3","depth":2,"next":{"title":"Affine and Projective Transformation","level":"1.3.4","depth":2,"path":"ch3_3D_rigid_body_motion/3.4_Affine_and_Projective_Transformation.md","ref":"ch3_3D_rigid_body_motion/3.4_Affine_and_Projective_Transformation.md","articles":[]},"previous":{"title":"Rotation Vector and Euler Angle","level":"1.3.2","depth":2,"path":"ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.md","ref":"ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch3_3D_rigid_body_motion/3.3_Quaternions.md","mtime":"2021-04-22T03:29:37.215Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-22T03:32:12.192Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
