@@ -54,13 +54,13 @@ $$
     \end{array}} \right], \quad
 { \mathbf{A}^ \vee } = \mathbf{a}
 $$
-Since $$\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T}$$ is a skew-symmetric matrix, we can find a 3-D vector $$\boldsymbol{\phi} (t) \in \mathbb{R}^3$$:
+Since $$\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T}$$ is a skew-symmetric matrix, we can find a 3-D vector $$\pmb{\phi} (t) \in \mathbb{R}^3$$:
 $$
-\dot{\mathbf{R}} (t) \mathbf{R}(t)^T = \boldsymbol{\phi} (t) ^ {\wedge}
+\dot{\mathbf{R}} (t) \mathbf{R}(t)^T = \pmb{\phi} (t) ^ {\wedge}
 $$
 Right multiply with $$\mathbf{R}(t)$$ on both sides, since $$\mathbf{R}(t)$$ is an orthogonal matrix, we have:
 $$
-\dot{\mathbf{R}} (t) = \boldsymbol{\phi} (t)^{\wedge} \mathbf{R}(t) =
+\dot{\mathbf{R}} (t) = \pmb{\phi} (t)^{\wedge} \mathbf{R}(t) =
 \left[ {\begin{array}{*{20}{c}}
     0&{ - {\phi _3}}&{ {\phi _2}}\\
     { {\phi _3}}&0&{ - {\phi _1}}\\
@@ -71,14 +71,14 @@ Time derivative of a rotation matrix is just by multiply a $$\phi^ {\wedge}(t)$$
 $$
 \begin{aligned}
 \mathbf{R} \left( t \right) & \approx \mathbf{R} \left( t_0 \right) + \dot {\mathbf{R}} \left( { {t_0}} \right)\left ( {t - {t_0}} \right)\\
-&= \mathbf{I} + \boldsymbol{\phi} {\left( { {t_0}} \right)^ \wedge } \left( t \right).
+&= \mathbf{I} + \pmb{\phi} {\left( { {t_0}} \right)^ \wedge } \left( t \right).
 \end{aligned}
 $$
-We see that $$\boldsymbol{\phi}$$ reflects the derivative of $$\mathbf{R}$$, so it is called the *tangent space* near the origin of $$\mathrm{SO}(3)$$
+We see that $$\pmb{\phi}$$ reflects the derivative of $$\mathbf{R}$$, so it is called the *tangent space* near the origin of $$\mathrm{SO}(3)$$
 
 Solve for the above differential equation for $$\mathbf{R}$$, and with the initial value $$\mathbf{R}(0) = \mathbf{I}$$, we have:
 $$
-\mathbf{R}(t) = \exp \left( \boldsymbol{\phi}_0^\wedge t \right).
+\mathbf{R}(t) = \exp \left( \pmb{\phi}_0^\wedge t \right).
 $$
 
 ## 4.1.3 The definition of Lie Algebra
@@ -114,9 +114,9 @@ The binary operations $$[,]$$$ are called *Lie brackets*
 
 ## 4.1.4 Lie Algebra $$\mathfrak{so}(3)$$
 
-The Lie algebra corresponding to $\mathrm{SO}(3)$ is a vector defined on $\mathbb{R}^3$, which we will denote as $\boldsymbol{\phi}$.
+The Lie algebra corresponding to $$\mathrm{SO}(3)$$ is a vector defined on $$\mathbb{R}^3$$, which we will denote as $$\pmb{\phi}$$.
 $$
-\boldsymbol{\varPhi} = \boldsymbol{\phi}^{\wedge} = \left[ {\begin{array}{*{20}{c}}
+\pmb{\varPhi} = \pmb{\phi}^{\wedge} = \left[ {\begin{array}{*{20}{c}}
     0&{ - {\phi _3}}&{ {\phi _2}}\\
     { {\phi _3}}&0&{ - {\phi _1}}\\
     { - {\phi _2}}&{ {\phi _1}}&0
@@ -124,36 +124,36 @@ $$
 $$
 Lie bracket:
 $$
-[\boldsymbol{\phi}_1, \boldsymbol{\phi}_2] = \left( \mathbf{ \varPhi }_1 \mathbf{ \varPhi }_2 - \mathbf{ \varPhi }_2 \mathbf{ \varPhi }_1 \right)^\vee.
+[\pmb{\phi}_1, \pmb{\phi}_2] = \left( \mathbf{ \varPhi }_1 \mathbf{ \varPhi }_2 - \mathbf{ \varPhi }_2 \mathbf{ \varPhi }_1 \right)^\vee.
 $$
-Since the vector $\boldsymbol{\phi}$ is one-to-one with the skew-symmetric matrix, we say the elements of $\mathfrak{so}(3)$ are three-dimensional vectors or three-dimensional skew-symmetric matrices, without any ambiguity:
+Since the vector $$\pmb{\phi}$$ is one-to-one with the skew-symmetric matrix, we say the elements of $$\mathfrak{so}(3)$$ are three-dimensional vectors or three-dimensional skew-symmetric matrices, without any ambiguity:
 $$
-\mathfrak{so}(3) = \left\{ \boldsymbol{\phi} \in \mathbb{R}^3 \ \text{or}\  \boldsymbol{\varPhi} = \boldsymbol{\phi^\wedge} \in \mathbb{ R}^{3 \times 3} \right\}.
+\mathfrak{so}(3) = \left\{ \pmb{\phi} \in \mathbb{R}^3 \ \text{or}\  \pmb{\varPhi} = \pmb{\phi^\wedge} \in \mathbb{ R}^{3 \times 3} \right\}.
 $$
 **$$\mathfrak{so}(3)$$ are just a set of 3D vectors that can express the derivative of the rotation matrix.** Its relationship to $\mathrm{SO}(3)$ is given by the exponential map:
 $$
-\mathbf{R} = \exp ( \boldsymbol{\phi}^\wedge ).
+\mathbf{R} = \exp ( \pmb{\phi}^\wedge ).
 $$
 
 ## 4.1.5 Lie Algebra $$\mathfrak{se}(3)$$
 
- Similar to $\mathfrak{so}(3)$, $\mathfrak{se}(3)$ is located in the $\mathbb{R}^6$ space:
+ Similar to $$\mathfrak{so}(3)$$, $$\mathfrak{se}(3)$$ is located in the $$\mathbb{R}^6$$ space:
 $$
-\mathfrak{se}(3) = \left\{ { \boldsymbol{\xi} = \left[ \begin{array}{l}
-    \boldsymbol{\rho} \\
-    \boldsymbol{\phi}
+\mathfrak{se}(3) = \left\{ { \pmb{\xi} = \left[ \begin{array}{l}
+    \pmb{\rho} \\
+    \pmb{\phi}
     \end{array} \right]
     \in { \mathbb{R}^6} ,
-    \boldsymbol{\rho} \in { \mathbb{R}^3}, \boldsymbol{\phi} \in \mathfrak{so} \left( 3 \right),{ \boldsymbol{\xi} ^ \wedge } = \left[ {\begin{array}{*{20}{c}}
-        { { \boldsymbol{\phi} ^ \wedge }}& \boldsymbol{\rho} \\
+    \pmb{\rho} \in { \mathbb{R}^3}, \pmb{\phi} \in \mathfrak{so} \left( 3 \right),{ \pmb{\xi} ^ \wedge } = \left[ {\begin{array}{*{20}{c}}
+        { { \pmb{\phi} ^ \wedge }}& \pmb{\rho} \\
         { {\mathbf{0}^T}}&0
         \end{array}} \right] \in { \mathbb{R}^{4 \times 4}}} \right\}
 $$
-The first three dimensions are  'translation part' which is denoted as $\boldsymbol{\rho}$;  the second part is a rotation part $\boldsymbol{\phi}$, which is essentially a $\mathfrak{so}(3)$ element
+The first three dimensions are  'translation part' which is denoted as $$\pmb{\rho}$$;  the second part is a rotation part $$\pmb{\phi}$$, which is essentially a $$\mathfrak{so}(3)$$ element
 
- $\mathfrak{se}(3)$ as a 'vector consisting of a translation plus a $\mathfrak{so}(3)$ element'
+$$ \mathfrak{se}(3) $$ as a 'vector consisting of a translation plus a $$\mathfrak{so}(3)$$ element'
 
 Lie bracket:
 $$
-[ \boldsymbol{\xi}_1, \boldsymbol{\xi}_2 ] = \left( \boldsymbol{\xi}_1^\wedge \boldsymbol{\xi}_2^\wedge -\boldsymbol{\xi}_2^ \wedge \boldsymbol{\xi}_1^\wedge \right) ^\vee.
+[ \pmb{\xi}_1, \pmb{\xi}_2 ] = \left( \pmb{\xi}_1^\wedge \pmb{\xi}_2^\wedge -\pmb{\xi}_2^ \wedge \pmb{\xi}_1^\wedge \right) ^\vee.
 $$

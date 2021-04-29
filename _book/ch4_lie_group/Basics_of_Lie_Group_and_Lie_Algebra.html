@@ -453,13 +453,13 @@ It can be seen that <script type="math/tex; ">\dot{\mathbf{R}} (t) \mathbf{R} {(
     \end{array}} \right], \quad
 { \mathbf{A}^ \vee } = \mathbf{a}
 </script>
-Since <script type="math/tex; ">\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T}</script> is a skew-symmetric matrix, we can find a 3-D vector <script type="math/tex; ">\boldsymbol{\phi} (t) \in \mathbb{R}^3</script>:
+Since <script type="math/tex; ">\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T}</script> is a skew-symmetric matrix, we can find a 3-D vector <script type="math/tex; ">\pmb{\phi} (t) \in \mathbb{R}^3</script>:
 <script type="math/tex; mode=display">
-\dot{\mathbf{R}} (t) \mathbf{R}(t)^T = \boldsymbol{\phi} (t) ^ {\wedge}
+\dot{\mathbf{R}} (t) \mathbf{R}(t)^T = \pmb{\phi} (t) ^ {\wedge}
 </script>
 Right multiply with <script type="math/tex; ">\mathbf{R}(t)</script> on both sides, since <script type="math/tex; ">\mathbf{R}(t)</script> is an orthogonal matrix, we have:
 <script type="math/tex; mode=display">
-\dot{\mathbf{R}} (t) = \boldsymbol{\phi} (t)^{\wedge} \mathbf{R}(t) =
+\dot{\mathbf{R}} (t) = \pmb{\phi} (t)^{\wedge} \mathbf{R}(t) =
 \left[ {\begin{array}{*{20}{c}}
     0&{ - {\phi _3}}&{ {\phi _2}}\\
     { {\phi _3}}&0&{ - {\phi _1}}\\
@@ -470,13 +470,13 @@ Time derivative of a rotation matrix is just by multiply a <script type="math/te
 <script type="math/tex; mode=display">
 \begin{aligned}
 \mathbf{R} \left( t \right) & \approx \mathbf{R} \left( t_0 \right) + \dot {\mathbf{R}} \left( { {t_0}} \right)\left ( {t - {t_0}} \right)\\
-&= \mathbf{I} + \boldsymbol{\phi} {\left( { {t_0}} \right)^ \wedge } \left( t \right).
+&= \mathbf{I} + \pmb{\phi} {\left( { {t_0}} \right)^ \wedge } \left( t \right).
 \end{aligned}
 </script>
-We see that <script type="math/tex; ">\boldsymbol{\phi}</script> reflects the derivative of <script type="math/tex; ">\mathbf{R}</script>, so it is called the <em>tangent space</em> near the origin of <script type="math/tex; ">\mathrm{SO}(3)</script></p>
+We see that <script type="math/tex; ">\pmb{\phi}</script> reflects the derivative of <script type="math/tex; ">\mathbf{R}</script>, so it is called the <em>tangent space</em> near the origin of <script type="math/tex; ">\mathrm{SO}(3)</script></p>
 <p>Solve for the above differential equation for <script type="math/tex; ">\mathbf{R}</script>, and with the initial value <script type="math/tex; ">\mathbf{R}(0) = \mathbf{I}</script>, we have:
 <script type="math/tex; mode=display">
-\mathbf{R}(t) = \exp \left( \boldsymbol{\phi}_0^\wedge t \right).
+\mathbf{R}(t) = \exp \left( \pmb{\phi}_0^\wedge t \right).
 </script></p>
 <h2 id="413-the-definition-of-lie-algebra">4.1.3 The definition of Lie Algebra</h2>
 <p>Each Lie group has a Lie algebra corresponding to it.</p>
@@ -503,9 +503,9 @@ We see that <script type="math/tex; ">\boldsymbol{\phi}</script> reflects the de
 </script></p>
 <p>The binary operations <script type="math/tex; ">[,]</script>$ are called <em>Lie brackets</em></p>
 <h2 id="414-lie-algebra-mathfrakso3">4.1.4 Lie Algebra <script type="math/tex; ">\mathfrak{so}(3)</script></h2>
-<p>The Lie algebra corresponding to $\mathrm{SO}(3)$ is a vector defined on $\mathbb{R}^3$, which we will denote as $\boldsymbol{\phi}$.
+<p>The Lie algebra corresponding to <script type="math/tex; ">\mathrm{SO}(3)</script> is a vector defined on <script type="math/tex; ">\mathbb{R}^3</script>, which we will denote as <script type="math/tex; ">\pmb{\phi}</script>.
 <script type="math/tex; mode=display">
-\boldsymbol{\varPhi} = \boldsymbol{\phi}^{\wedge} = \left[ {\begin{array}{*{20}{c}}
+\pmb{\varPhi} = \pmb{\phi}^{\wedge} = \left[ {\begin{array}{*{20}{c}}
     0&{ - {\phi _3}}&{ {\phi _2}}\\
     { {\phi _3}}&0&{ - {\phi _1}}\\
     { - {\phi _2}}&{ {\phi _1}}&0
@@ -513,34 +513,34 @@ We see that <script type="math/tex; ">\boldsymbol{\phi}</script> reflects the de
 </script>
 Lie bracket:
 <script type="math/tex; mode=display">
-[\boldsymbol{\phi}_1, \boldsymbol{\phi}_2] = \left( \mathbf{ \varPhi }_1 \mathbf{ \varPhi }_2 - \mathbf{ \varPhi }_2 \mathbf{ \varPhi }_1 \right)^\vee.
+[\pmb{\phi}_1, \pmb{\phi}_2] = \left( \mathbf{ \varPhi }_1 \mathbf{ \varPhi }_2 - \mathbf{ \varPhi }_2 \mathbf{ \varPhi }_1 \right)^\vee.
 </script>
-Since the vector $\boldsymbol{\phi}$ is one-to-one with the skew-symmetric matrix, we say the elements of $\mathfrak{so}(3)$ are three-dimensional vectors or three-dimensional skew-symmetric matrices, without any ambiguity:
+Since the vector <script type="math/tex; ">\pmb{\phi}</script> is one-to-one with the skew-symmetric matrix, we say the elements of <script type="math/tex; ">\mathfrak{so}(3)</script> are three-dimensional vectors or three-dimensional skew-symmetric matrices, without any ambiguity:
 <script type="math/tex; mode=display">
-\mathfrak{so}(3) = \left\{ \boldsymbol{\phi} \in \mathbb{R}^3 \ \text{or}\  \boldsymbol{\varPhi} = \boldsymbol{\phi^\wedge} \in \mathbb{ R}^{3 \times 3} \right\}.
+\mathfrak{so}(3) = \left\{ \pmb{\phi} \in \mathbb{R}^3 \ \text{or}\  \pmb{\varPhi} = \pmb{\phi^\wedge} \in \mathbb{ R}^{3 \times 3} \right\}.
 </script>
 <strong><script type="math/tex; ">\mathfrak{so}(3)</script> are just a set of 3D vectors that can express the derivative of the rotation matrix.</strong> Its relationship to $\mathrm{SO}(3)$ is given by the exponential map:
 <script type="math/tex; mode=display">
-\mathbf{R} = \exp ( \boldsymbol{\phi}^\wedge ).
+\mathbf{R} = \exp ( \pmb{\phi}^\wedge ).
 </script></p>
 <h2 id="415-lie-algebra-mathfrakse3">4.1.5 Lie Algebra <script type="math/tex; ">\mathfrak{se}(3)</script></h2>
-<p> Similar to $\mathfrak{so}(3)$, $\mathfrak{se}(3)$ is located in the $\mathbb{R}^6$ space:
+<p> Similar to <script type="math/tex; ">\mathfrak{so}(3)</script>, <script type="math/tex; ">\mathfrak{se}(3)</script> is located in the <script type="math/tex; ">\mathbb{R}^6</script> space:
 <script type="math/tex; mode=display">
-\mathfrak{se}(3) = \left\{ { \boldsymbol{\xi} = \left[ \begin{array}{l}
-    \boldsymbol{\rho} \\
-    \boldsymbol{\phi}
+\mathfrak{se}(3) = \left\{ { \pmb{\xi} = \left[ \begin{array}{l}
+    \pmb{\rho} \\
+    \pmb{\phi}
     \end{array} \right]
     \in { \mathbb{R}^6} ,
-    \boldsymbol{\rho} \in { \mathbb{R}^3}, \boldsymbol{\phi} \in \mathfrak{so} \left( 3 \right),{ \boldsymbol{\xi} ^ \wedge } = \left[ {\begin{array}{*{20}{c}}
-        { { \boldsymbol{\phi} ^ \wedge }}& \boldsymbol{\rho} \\
+    \pmb{\rho} \in { \mathbb{R}^3}, \pmb{\phi} \in \mathfrak{so} \left( 3 \right),{ \pmb{\xi} ^ \wedge } = \left[ {\begin{array}{*{20}{c}}
+        { { \pmb{\phi} ^ \wedge }}& \pmb{\rho} \\
         { {\mathbf{0}^T}}&0
         \end{array}} \right] \in { \mathbb{R}^{4 \times 4}}} \right\}
 </script>
-The first three dimensions are  &apos;translation part&apos; which is denoted as $\boldsymbol{\rho}$;  the second part is a rotation part $\boldsymbol{\phi}$, which is essentially a $\mathfrak{so}(3)$ element</p>
-<p> $\mathfrak{se}(3)$ as a &apos;vector consisting of a translation plus a $\mathfrak{so}(3)$ element&apos;</p>
+The first three dimensions are  &apos;translation part&apos; which is denoted as <script type="math/tex; ">\pmb{\rho}</script>;  the second part is a rotation part <script type="math/tex; ">\pmb{\phi}</script>, which is essentially a <script type="math/tex; ">\mathfrak{so}(3)</script> element</p>
+<p><script type="math/tex; "> \mathfrak{se}(3) </script> as a &apos;vector consisting of a translation plus a <script type="math/tex; ">\mathfrak{so}(3)</script> element&apos;</p>
 <p>Lie bracket:
 <script type="math/tex; mode=display">
-[ \boldsymbol{\xi}_1, \boldsymbol{\xi}_2 ] = \left( \boldsymbol{\xi}_1^\wedge \boldsymbol{\xi}_2^\wedge -\boldsymbol{\xi}_2^ \wedge \boldsymbol{\xi}_1^\wedge \right) ^\vee.
+[ \pmb{\xi}_1, \pmb{\xi}_2 ] = \left( \pmb{\xi}_1^\wedge \pmb{\xi}_2^\wedge -\pmb{\xi}_2^ \wedge \pmb{\xi}_1^\wedge \right) ^\vee.
 </script></p>
 
                                 
@@ -585,7 +585,7 @@ The first three dimensions are  &apos;translation part&apos; which is denoted as
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Basics of Lie Group and Lie Algebra","level":"1.4.1","depth":2,"next":{"title":"Exponential and Logarithmic Mapping","level":"1.4.2","depth":2,"path":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","ref":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","articles":[]},"previous":{"title":"Chapter 4: Lie Group and Lie Algebra","level":"1.4","depth":1,"path":"ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md","ref":"ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md","articles":[{"title":"Basics of Lie Group and Lie Algebra","level":"1.4.1","depth":2,"path":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","ref":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","articles":[]},{"title":"Exponential and Logarithmic Mapping","level":"1.4.2","depth":2,"path":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","ref":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","mtime":"2021-04-29T19:44:21.129Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-29T19:46:35.415Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Basics of Lie Group and Lie Algebra","level":"1.4.1","depth":2,"next":{"title":"Exponential and Logarithmic Mapping","level":"1.4.2","depth":2,"path":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","ref":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","articles":[]},"previous":{"title":"Chapter 4: Lie Group and Lie Algebra","level":"1.4","depth":1,"path":"ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md","ref":"ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md","articles":[{"title":"Basics of Lie Group and Lie Algebra","level":"1.4.1","depth":2,"path":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","ref":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","articles":[]},{"title":"Exponential and Logarithmic Mapping","level":"1.4.2","depth":2,"path":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","ref":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","mtime":"2021-04-29T19:53:35.920Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-29T19:55:54.619Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
