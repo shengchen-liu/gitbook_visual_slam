@@ -12,13 +12,13 @@ Similarly, for any element in $$\boldsymbol{\phi} \in \mathfrak{so}(3)$$:
 $$
 \exp(\boldsymbol{\phi}^\wedge) = \sum\limits_{n = 0}^\infty {\frac{1}{ {n!}}{ (\boldsymbol{\phi}^{\wedge })^n}}
 $$
-Since $\boldsymbol{\phi}$ is a three-dimensional vector, we can define its length and direction,  denoted as $\theta$ and $\mathbf{n}$, respectively. So we have $\boldsymbol{\phi} = \theta \mathbf{n}$, where $\mathbf{n}$ is a unit-length direction vector, i.e., $\| \mathbf{n} \| =1$
+Since $$\boldsymbol{\phi}$$ is a three-dimensional vector, we can define its length and direction,  denoted as $$\theta$$ and $$\mathbf{n}$$, respectively. So we have $$\boldsymbol{\phi} = \theta \mathbf{n}$$, where $$\mathbf{n}$$ is a unit-length direction vector, i.e., $$\| \mathbf{n} \| =1$$
 
 **Rodrigues' formula**
 $$
 \exp( \theta \mathbf{n}^\wedge ) = \cos \theta \mathbf{I} + (1 - \cos \theta )\mathbf{n}{\mathbf{n}^T } + \sin \theta {\mathbf{n}^ \wedge }.
 $$
-This shows that $\mathfrak{so}(3)$ is actually the *rotation vector*, and the exponential map is just Rodrigues' formula.
+This shows that $$\mathfrak{so}(3)$$ is actually the *rotation vector*, and the exponential map is just Rodrigues' formula.
 
 
 
