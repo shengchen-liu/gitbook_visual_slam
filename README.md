@@ -6,7 +6,9 @@
   * [Rotation Vector and Euler Angle](ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.md)
   * [Quaternions](ch3_3D_rigid_body_motion/3.3_Quaternions.md)
   * [Affine and Projective Transformation](ch3_3D_rigid_body_motion/3.4_Affine_and_Projective_Transformation.md)
-
+* [Chapter 4: Lie Group and Lie Algebra](ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md)
+  * [Basics of Lie Group and Lie Algebra](ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md)
+  * [Exponential and Logarithmic Mapping](ch4_lie_group/Exponential_and_Logarithmic_Mapping.md)
 - [Chapter 7: Visual Odometry: Feature Point](ch7_visual_odometry_part1/Visual_Odometry_Part_1.md)
 
   - [Feature Point](ch7_visual_odometry_part1/Feature_Point.md)

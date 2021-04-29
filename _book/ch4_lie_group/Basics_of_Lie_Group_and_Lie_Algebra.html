@@ -1,0 +1,632 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Basics of Lie Group and Lie Algebra · Computer Vision Learning Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Shengchen Liu">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Exponential_and_Logarithmic_Mapping.html" />
+    
+    
+    <link rel="prev" href="Chapter4_Lie_Group_and_Lie_Algebra.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://shengchen-liu.github.io/notes" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html">
+            
+                <a href="../ch2_first_glance/chapter2-first-glance-of-visual-SLAM.html">
+            
+                    
+                    Chapter 2: First Glance at Visual SLAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.html">
+            
+                <a href="../ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.html">
+            
+                    
+                    Chapter 3: 3D Rigid Body Motion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.html">
+            
+                <a href="../ch3_3D_rigid_body_motion/Chapter3_3D_Rigid_Body_Motion.html">
+            
+                    
+                    Rotation Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.html">
+            
+                <a href="../ch3_3D_rigid_body_motion/3.3_Rotation_Vectors_and_Euler_Angles.html">
+            
+                    
+                    Rotation Vector and Euler Angle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch3_3D_rigid_body_motion/3.3_Quaternions.html">
+            
+                <a href="../ch3_3D_rigid_body_motion/3.3_Quaternions.html">
+            
+                    
+                    Quaternions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch3_3D_rigid_body_motion/3.4_Affine_and_Projective_Transformation.html">
+            
+                <a href="../ch3_3D_rigid_body_motion/3.4_Affine_and_Projective_Transformation.html">
+            
+                    
+                    Affine and Projective Transformation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Chapter4_Lie_Group_and_Lie_Algebra.html">
+            
+                <a href="Chapter4_Lie_Group_and_Lie_Algebra.html">
+            
+                    
+                    Chapter 4: Lie Group and Lie Algebra
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="Basics_of_Lie_Group_and_Lie_Algebra.html">
+            
+                <a href="Basics_of_Lie_Group_and_Lie_Algebra.html">
+            
+                    
+                    Basics of Lie Group and Lie Algebra
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="Exponential_and_Logarithmic_Mapping.html">
+            
+                <a href="Exponential_and_Logarithmic_Mapping.html">
+            
+                    
+                    Exponential and Logarithmic Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch7_visual_odometry_part1/Visual_Odometry_Part_1.html">
+            
+                <a href="../ch7_visual_odometry_part1/Visual_Odometry_Part_1.html">
+            
+                    
+                    Chapter 7: Visual Odometry: Feature Point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch7_visual_odometry_part1/Feature_Point.html">
+            
+                <a href="../ch7_visual_odometry_part1/Feature_Point.html">
+            
+                    
+                    Feature Point
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch7_visual_odometry_part1/ORB_Feature.html">
+            
+                <a href="../ch7_visual_odometry_part1/ORB_Feature.html">
+            
+                    
+                    ORB Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch7_visual_odometry_part1/Feature_Matching.html">
+            
+                <a href="../ch7_visual_odometry_part1/Feature_Matching.html">
+            
+                    
+                    Feature Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch7_visual_odometry_part1/Calculate_Camera_Motion.html">
+            
+                <a href="../ch7_visual_odometry_part1/Calculate_Camera_Motion.html">
+            
+                    
+                    Calculate Camera Motion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch7_visual_odometry_part1/2D-2D_epipolar_geometry.html">
+            
+                <a href="../ch7_visual_odometry_part1/2D-2D_epipolar_geometry.html">
+            
+                    
+                    2D-2D: epipolar geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch7_visual_odometry_part1/3D-2DPnP.html">
+            
+                <a href="../ch7_visual_odometry_part1/3D-2DPnP.html">
+            
+                    
+                    3D-2D: PnP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch7_visual_odometry_part1/3D-3D_ICP.html">
+            
+                <a href="../ch7_visual_odometry_part1/3D-3D_ICP.html">
+            
+                    
+                    3D-3D: ICP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Basics of Lie Group and Lie Algebra</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="41-basics-of-lie-group-and-lie-algebra">4.1 Basics of Lie Group and Lie Algebra</h1>
+<h2 id="411-group">4.1.1 Group</h2>
+<p>A group is an algebraic structure of <strong>one set plus one operator</strong>. 
+<script type="math/tex; mode=display">
+G = (A, \cdot)
+</script>
+Properties:</p>
+<ul>
+<li><p>Closure
+<script type="math/tex; mode=display">
+  \  \forall a_1, a_2 \in A, \  a_1 \cdot a_2 \in A
+  </script></p>
+</li>
+<li><p>Combination
+<script type="math/tex; mode=display">
+  \forall a_1, a_2, a_3 \in A, \  (a_1 \cdot a_2) \cdot a_3 = a_1 \cdot ( a_2 \cdot a_3) 
+  </script></p>
+</li>
+<li><p>Unite Element
+<script type="math/tex; mode=display">
+  \  \exists a_0 \in A, \  \mathrm{s.t.} \ \forall a \in A, \  a_0 \cdot a = a \cdot a_0 = a
+  </script></p>
+</li>
+<li><p>Inverse Element</p>
+</li>
+</ul>
+<p><script type="math/tex; mode=display">
+ \  \forall a \in A, \  \exists a^{-1} \in A, \  st \  a \cdot a^{-1} = a_0
+</script></p>
+<h2 id="412-introduction-of-the-lie-algebra">4.1.2 Introduction of the Lie Algebra</h2>
+<p>Consider an arbitrary rotation matrix <script type="math/tex; ">\mathbf{R}</script></p>
+<p>It satisfies:
+<script type="math/tex; mode=display">
+\mathbf{R}(t) \mathbf{R}(t) ^T = \mathbf{I}
+</script>
+Deriving time on both sides yields:
+<script type="math/tex; mode=display">
+\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T} + \mathbf{R} (t) \dot{\mathbf{R}} {(t) ^T} = 0.
+</script>
+Move the second term to the right and commute the matrices by using the transposed relation:
+<script type="math/tex; mode=display">
+\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T} = - \left( \dot{\mathbf{R}} (t) \mathbf{R} {(t)^T} \right)^T
+</script>
+It can be seen that <script type="math/tex; ">\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T}</script> is a <em>skew-symmetric matrix</em>, which turns a vector into a skew-symmetric matrix:
+<script type="math/tex; mode=display">
+{\mathbf{a}^ \wedge } = \mathbf{A} = \left[ {\begin{array}{*{20}{c}}
+    0&{ - {a_3}}&{ {a_2}}\\
+    { {a_3}}&0&{ - {a_1}}\\
+    { - {a_2}}&{ {a_1}}&0
+    \end{array}} \right], \quad
+{ \mathbf{A}^ \vee } = \mathbf{a}
+</script>
+Since <script type="math/tex; ">\dot{\mathbf{R}} (t) \mathbf{R} {(t)^T}</script> is a skew-symmetric matrix, we can find a 3-D vector <script type="math/tex; ">\boldsymbol{\phi} (t) \in \mathbb{R}^3</script>:
+<script type="math/tex; mode=display">
+\dot{\mathbf{R}} (t) \mathbf{R}(t)^T = \boldsymbol{\phi} (t) ^ {\wedge}
+</script>
+Right multiply with <script type="math/tex; ">\mathbf{R}(t)</script> on both sides, since <script type="math/tex; ">\mathbf{R}(t)</script> is an orthogonal matrix, we have:
+<script type="math/tex; mode=display">
+\dot{\mathbf{R}} (t) = \boldsymbol{\phi} (t)^{\wedge} \mathbf{R}(t) =
+\left[ {\begin{array}{*{20}{c}}
+    0&{ - {\phi _3}}&{ {\phi _2}}\\
+    { {\phi _3}}&0&{ - {\phi _1}}\\
+    { - {\phi _2}}&{ {\phi _1}}&0
+    \end{array}} \right] \mathbf{R} (t)
+</script>
+Time derivative of a rotation matrix is just by multiply a <script type="math/tex; ">\phi^ {\wedge}(t)</script> matrix on the left. Consider <script type="math/tex; ">\mathbf{R}(0) = \mathbf{I}</script> , we use the first-order Taylor expansion around <script type="math/tex; ">t=t_0</script> to write <script type="math/tex; ">\mathbf{R}(t)</script> as:
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbf{R} \left( t \right) & \approx \mathbf{R} \left( t_0 \right) + \dot {\mathbf{R}} \left( { {t_0}} \right)\left ( {t - {t_0}} \right)\\
+&= \mathbf{I} + \boldsymbol{\phi} {\left( { {t_0}} \right)^ \wedge } \left( t \right).
+\end{aligned}
+</script>
+We see that <script type="math/tex; ">\boldsymbol{\phi}</script> reflects the derivative of <script type="math/tex; ">\mathbf{R}</script>, so it is called the <em>tangent space</em> near the origin of <script type="math/tex; ">\mathrm{SO}(3)</script></p>
+<p>Solve for the above differential equation for <script type="math/tex; ">\mathbf{R}</script>, and with the initial value <script type="math/tex; ">\mathbf{R}(0) = \mathbf{I}</script>, we have:
+<script type="math/tex; mode=display">
+\mathbf{R}(t) = \exp \left( \boldsymbol{\phi}_0^\wedge t \right).
+</script></p>
+<h2 id="413-the-definition-of-lie-algebra">4.1.3 The definition of Lie Algebra</h2>
+<p>Each Lie group has a Lie algebra corresponding to it.</p>
+<p><strong>Definition of Lie Algebra:</strong></p>
+<p>A Lie algebra consists of a <strong>set</strong> <script type="math/tex; ">\mathbb{V}</script>, a <strong>scalar field</strong> <script type="math/tex; ">\mathbb{F}</script>, and a <strong>binary operation</strong> <script type="math/tex; ">[,]</script>. If they satisfy the following properties, then <script type="math/tex; ">(\mathbb{V}, \mathbb{F}, [,])</script> is a Lie algebra, denoted as <script type="math/tex; ">\mathfrak{g}</script>.</p>
+<ul>
+<li><p>Closure (&#x5C01;&#x95ED;&#x6027;): </p>
+<p><script type="math/tex; ">\forall \mathbf{X}, \mathbf{Y} \in \mathbb{V}; [\mathbf{X}, \mathbf{Y}] \in \mathbb{V}</script></p>
+</li>
+<li><p>Bilinear Composition (&#x53CC;&#x7EBF;&#x6027;) : </p>
+<p><script type="math/tex; ">\forall \mathbf{X},\mathbf{Y},\mathbf{Z} \in \mathbb{V}; a,b \in \mathbb{F }</script></p>
+<p><script type="math/tex; ">[a\mathbf{X}+b\mathbf{Y}, \mathbf{Z}] = a[\mathbf{X}, \mathbf{Z}] + b [ \mathbf{Y}, \mathbf{Z} ], \quad [\mathbf{Z}, a \mathbf{X}+b\mathbf{Y}] = a [\mathbf{Z}, \mathbf{X} ]+ b [\mathbf{Z},\mathbf{Y}]</script></p>
+</li>
+<li><p>Reflexive (&#x81EA;&#x53CD;&#x7701;): (Reflexive means that an element operates with itself results in zero)
+<script type="math/tex; mode=display">
+  \forall \mathbf{X} \in \mathbb{V}; [\mathbf{X},\mathbf{X}] = \mathbf{0}
+  </script></p>
+</li>
+<li><p>Jacobi Identity (&#x96C5;&#x514B;&#x6BD4;&#x7B49;&#x4EF7;&#x6027;)</p>
+</li>
+</ul>
+<p><script type="math/tex; mode=display">
+\forall \mathbf{X},\mathbf{Y},\mathbf{Z} \in \mathbb{V}; [\mathbf{X}, [ \mathbf{Y},\mathbf{Z}] ] + [\mathbf{Z}, [\mathbf{X},\mathbf{Y}] ] + [\mathbf{Y}, [\mathbf{Z}, \mathbf{X}]] =\mathbf{0}
+</script></p>
+<p>The binary operations <script type="math/tex; ">[,]</script>$ are called <em>Lie brackets</em></p>
+<h2 id="414-lie-algebra-mathfrakso3">4.1.4 Lie Algebra <script type="math/tex; ">\mathfrak{so}(3)</script></h2>
+<p>The Lie algebra corresponding to $\mathrm{SO}(3)$ is a vector defined on $\mathbb{R}^3$, which we will denote as $\boldsymbol{\phi}$.
+<script type="math/tex; mode=display">
+\boldsymbol{\varPhi} = \boldsymbol{\phi}^{\wedge} = \left[ {\begin{array}{*{20}{c}}
+    0&{ - {\phi _3}}&{ {\phi _2}}\\
+    { {\phi _3}}&0&{ - {\phi _1}}\\
+    { - {\phi _2}}&{ {\phi _1}}&0
+    \end{array}} \right] \in \mathbb{R}^{3 \times 3}.
+</script>
+Lie bracket:
+<script type="math/tex; mode=display">
+[\boldsymbol{\phi}_1, \boldsymbol{\phi}_2] = \left( \mathbf{ \varPhi }_1 \mathbf{ \varPhi }_2 - \mathbf{ \varPhi }_2 \mathbf{ \varPhi }_1 \right)^\vee.
+</script>
+Since the vector $\boldsymbol{\phi}$ is one-to-one with the skew-symmetric matrix, we say the elements of $\mathfrak{so}(3)$ are three-dimensional vectors or three-dimensional skew-symmetric matrices, without any ambiguity:
+<script type="math/tex; mode=display">
+\mathfrak{so}(3) = \left\{ \boldsymbol{\phi} \in \mathbb{R}^3 \ \text{or}\  \boldsymbol{\varPhi} = \boldsymbol{\phi^\wedge} \in \mathbb{ R}^{3 \times 3} \right\}.
+</script>
+<strong><script type="math/tex; ">\mathfrak{so}(3)</script> are just a set of 3D vectors that can express the derivative of the rotation matrix.</strong> Its relationship to $\mathrm{SO}(3)$ is given by the exponential map:
+<script type="math/tex; mode=display">
+\mathbf{R} = \exp ( \boldsymbol{\phi}^\wedge ).
+</script></p>
+<h2 id="415-lie-algebra-mathfrakse3">4.1.5 Lie Algebra <script type="math/tex; ">\mathfrak{se}(3)</script></h2>
+<p> Similar to $\mathfrak{so}(3)$, $\mathfrak{se}(3)$ is located in the $\mathbb{R}^6$ space:
+<script type="math/tex; mode=display">
+\mathfrak{se}(3) = \left\{ { \boldsymbol{\xi} = \left[ \begin{array}{l}
+    \boldsymbol{\rho} \\
+    \boldsymbol{\phi}
+    \end{array} \right]
+    \in { \mathbb{R}^6} ,
+    \boldsymbol{\rho} \in { \mathbb{R}^3}, \boldsymbol{\phi} \in \mathfrak{so} \left( 3 \right),{ \boldsymbol{\xi} ^ \wedge } = \left[ {\begin{array}{*{20}{c}}
+        { { \boldsymbol{\phi} ^ \wedge }}& \boldsymbol{\rho} \\
+        { {\mathbf{0}^T}}&0
+        \end{array}} \right] \in { \mathbb{R}^{4 \times 4}}} \right\}
+</script>
+The first three dimensions are  &apos;translation part&apos; which is denoted as $\boldsymbol{\rho}$;  the second part is a rotation part $\boldsymbol{\phi}$, which is essentially a $\mathfrak{so}(3)$ element</p>
+<p> $\mathfrak{se}(3)$ as a &apos;vector consisting of a translation plus a $\mathfrak{so}(3)$ element&apos;</p>
+<p>Lie bracket:
+<script type="math/tex; mode=display">
+[ \boldsymbol{\xi}_1, \boldsymbol{\xi}_2 ] = \left( \boldsymbol{\xi}_1^\wedge \boldsymbol{\xi}_2^\wedge -\boldsymbol{\xi}_2^ \wedge \boldsymbol{\xi}_1^\wedge \right) ^\vee.
+</script></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Chapter4_Lie_Group_and_Lie_Algebra.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 4: Lie Group and Lie Algebra">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Exponential_and_Logarithmic_Mapping.html" class="navigation navigation-next " aria-label="Next page: Exponential and Logarithmic Mapping">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Basics of Lie Group and Lie Algebra","level":"1.4.1","depth":2,"next":{"title":"Exponential and Logarithmic Mapping","level":"1.4.2","depth":2,"path":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","ref":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","articles":[]},"previous":{"title":"Chapter 4: Lie Group and Lie Algebra","level":"1.4","depth":1,"path":"ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md","ref":"ch4_lie_group/Chapter4_Lie_Group_and_Lie_Algebra.md","articles":[{"title":"Basics of Lie Group and Lie Algebra","level":"1.4.1","depth":2,"path":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","ref":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","articles":[]},{"title":"Exponential and Logarithmic Mapping","level":"1.4.2","depth":2,"path":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","ref":"ch4_lie_group/Exponential_and_Logarithmic_Mapping.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shengchen Liu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Computer Vision Learning Notes","links":{"sidebar":{"Home":"https://shengchen-liu.github.io/notes"}},"gitbook":"*","description":"A collection of learning notes of Visual SLAM"},"file":{"path":"ch4_lie_group/Basics_of_Lie_Group_and_Lie_Algebra.md","mtime":"2021-04-29T19:44:21.129Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-29T19:46:35.415Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
